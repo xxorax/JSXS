@@ -21,8 +21,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @copyright  Copyright (c) 2009 Martin PANEL (http://www.xorax.info)
- * @license    http://opensource.org/licenses/mit-license.php  MIT License
+ * @copyright   Copyright (c) 2009 Martin PANEL (http://www.xorax.info)
+ * @license     http://opensource.org/licenses/mit-license.php  MIT License
+ * @version     1.0
  */
 
 /**

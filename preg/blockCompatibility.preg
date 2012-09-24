@@ -11,7 +11,7 @@ $_c:
   |
     @@@b@@@       @@@ or by in|instanceof|else|catch @@@
   |					@@@ else end is not regular, so track it #4 @@@
-    (
+    (       @@@ #5 @@@
       [^@\s]
     |
       @[^c]

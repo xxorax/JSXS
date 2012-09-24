@@ -23,7 +23,7 @@
  *
  * @copyright   Copyright (c) 2009 Martin PANEL (http://www.xorax.info)
  * @license     http://opensource.org/licenses/mit-license.php  MIT License
- * @version     0.7
+ * @version     0.7.1
  */
 
 //*
@@ -546,16 +546,14 @@ class Jsxs {
    * @return string replacement
    */
   private function _encode ($args) {
-    $block = $args[1].$args[3]; // declaration function + block
-    $func = $args[1]; // declaration function
-    $end = (isset($args[4])) ? $args[4] : null; // after block if compatibility option activate
-    //$all = &$args[0];
+    $do = $args[1];
+    $func = $args[2]; // declaration function
+    $block = $do.$func.$args[4]; // do or declaration function + content block
+    $end = (isset($args[5]) && !$do) ? $args[5] : null; // after block if compatibility option activate
+    $args = $args[3]; // function argument without ()
     
     if ($func) {
       $ids = array();
-      //$content = &$args[3];
-      //$osArgs = strpos($args[1],'(')+1 ;
-      $args = $args[2]; // function argument without ()
       $block = $this->_decode($block);
       
       $reg = $this->_getRegex('functionArguments', array(
@@ -622,7 +620,7 @@ class Jsxs {
       // for all varname in block
       foreach ($ids as $id) {
         if (strlen($id) > 1) {
-          // search an appropriated short varname
+          // search an appropriated short varname : match an unused varname in sub-block
           do {
             $shortId = $this->_uniqVarId($count, true);
             $count++;

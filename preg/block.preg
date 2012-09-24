@@ -2,19 +2,24 @@ PregFile : 1.0
 $_f: 
 $_c:
 
-( 					@@@ is function ? #1 @@@
-  @@@f@@@\s*
-  (?:@@@c@@@\s*)*
-  [\w$]*\s*
-  (?:@@@c@@@\s*)*
-  \(				@@@ function argument start @@@
-  (
-    [^()]*			@@@ #2 @@@
+(?:
+  @@@ don't preceded with \s (no varname accept bracket after) @@@
+  (do\s*)     @@@ is do (and while) statement ? #1 @@@
+  |
+  ( 					@@@ is function ? #2 @@@
+    @@@f@@@\s*
+    (?:@@@c@@@\s*)*
+    [\w$]*\s*
+    (?:@@@c@@@\s*)*
+    \(				@@@ function argument start @@@
+    (
+      [^()]*			@@@ #3 @@@
+    )
+    \)
+    \s*
   )
-  \)
-  \s*
 )?
-(					@@@ content block #3 @@@
+(					@@@ content block #4 @@@
   \{
   [^{}]*
   \}
