@@ -1,0 +1,60 @@
+PregFile : 1.0
+
+(                               @@@ \1 @@@
+    (')|"                       @@@ string  \2 @@@
+  )
+  (?:
+    \\.
+    |
+    (?(2)[^'\\\n]|[^"\\\n])     @@@ escape simple or double quotes @@@
+  )*
+  \1
+|                               @@@ or : start index 3 @@@
+  /((/)|\*[^/])?                @@@ // or /*...   \3 \4 @@@
+  (?(4)                         @@@ comment // @@@
+    [^\n]*(?=\n)
+  |
+    (?(3)                       @@@ comment /*... @@@
+      (?:
+        [^/]
+        |
+        (?<!\*)/
+      )*
+    |                           @@@ regex @@@
+      (                         @@@ \5 @@@
+        \\.
+        |
+        [^\\()\[\]/\n]
+        |
+          \(
+          (?5)+
+          \)
+        |
+          \[
+          (?:
+              \\.
+            |
+              [^\]\n\\]
+          )+
+          \]
+      )*
+    )
+    /                           @@@ end of comment or regexp @@@
+    (?(3)|                      @@@ if not a comment, is a regexp @@@
+      [gim]*                    @@@ and match regexp option @@@
+      (?=\s*[^\s\w$"'\\])       @@@ separator @@@
+    )
+  )
+|                               @@@ or : start index 6 @@@
+  (?<=[^\w$]|^)
+  (?:                           @@@ identify operator except "for" and "try" (no utility) @@@
+      (break|case|continue|delete|new|return|typeof|throw)  @@@ operator left : o @@@
+    |
+      (in|instanceof|else|catch)           @@@ operator between vars : b @@@
+    |
+      (function)                @@@ function : f @@@
+    |
+      (var)                     @@@ var : v @@@
+  )
+  (?=[^\w$])                    @@@ separator @@@
+  

@@ -1,0 +1,23 @@
+PregFile : 1.0
+$bovf: 
+$c:
+$variableId:
+
+(?<=
+    [^\s\w$.{,@]
+  |
+    @@@bovf@@@
+  |
+    ([,{])
+)
+(\s*(?:@@@c@@@\s*)*)		@@@ blank and comment @@@
+@@@variableId@@@			@@@ original varname @@@
+(?=
+  \s*
+  (?:@@@c@@@\s*)*
+  (?(1)
+      [^\s\w$:]
+    |
+      [^\s\w$]
+  )
+)

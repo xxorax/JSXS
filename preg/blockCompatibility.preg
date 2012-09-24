@@ -1,0 +1,20 @@
+PregFile : 1.0
+$_c:
+
+(?=				@@@ after block @@@
+  \s*
+  (?:
+    @@@c@@@\s*		@@@ after blank @@@
+  )*
+  (?:				@@@ if this is right @@@
+  	[;,)}\].:]			@@@ must be termined by it @@@
+  |
+    @@@b@@@       @@@ or by in|instanceof|else|catch @@@
+  |					@@@ else end is not regular, so track it #4 @@@
+    (
+      [^@\s]
+    |
+      @[^c]
+    )
+  )
+)
