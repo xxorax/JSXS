@@ -43,20 +43,27 @@ Two string separated by + can be concatened.
 
 ## Example
 
+Uncompressed :
+
 ``` javascript
-// uncompressed
 function test (arg1) {
   var func = function (arg1) {
     return arg1+2;
   }
   return 'your value' + ' : ' + arg1 + func(arg1);
 }
-// compressed
+```
+
+Compressed :
+
+``` javascript
 function test(b){var c=function(a){return a+2};return'your value : '+b+c(b)}
 ```
 
-removed white space.
-concatened string : 'your value' + ' : ' => 'your value : '.
-reduced variable names : arg1 => b, func => c, arg1 => a.
-removed semicolumn : ...func(arg1); => ...c(b).
-adding semicolumn for compatibility "} return 'your val..." => "};return'your val...".
+Result explained:
+
+- removed white space.
+- concatened string : 'your value' + ' : ' => 'your value : '.
+- reduced variable names : arg1 => b, func => c, arg1 => a.
+- removed semicolumn : ...func(arg1); => ...c(b).
+- adding semicolumn for compatibility "} return 'your val..." => "};return'your val...".
