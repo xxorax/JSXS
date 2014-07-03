@@ -4,8 +4,8 @@
     "description": "A Javascript compressor based on preg written in PHP.",
     "homepage": "http://www.xorax.info/labs/jsxs/",
     "license": [
-      "MIT",
-      "GPL-3.0"
+        "MIT",
+        "GPL-3.0"
     ],
     "authors": [
         {
@@ -14,10 +14,10 @@
             "homepage": "http://www.xorax.info"
         }
     ],
-	"support": {
-		"issues": "https://github.com/xxorax/JSXS/issues"
+    "support": {
+        "issues": "https://github.com/xxorax/JSXS/issues"
     },
-	"require": {
+    "require": {
         "php": ">=5.1.0"
     },
     "autoload": {
