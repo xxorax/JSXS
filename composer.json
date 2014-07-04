@@ -1,5 +1,5 @@
 {
-    "name": "xxorax/JSXS",
+    "name": "xxorax/jsxs",
     "type": "library",
     "description": "A Javascript compressor based on preg written in PHP.",
     "homepage": "http://www.xorax.info/labs/jsxs/",
