@@ -21,6 +21,6 @@
         "php": ">=5.1.0"
     },
     "autoload": {
-        "classmap": ["preg/", "PregFile.php", "Jsxs.php"]
+        "classmap": ["PregFile.php", "Jsxs.php"]
     }
 }
