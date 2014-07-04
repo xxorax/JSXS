@@ -1,0 +1,26 @@
+{
+    "name": "xxorax/JSXS",
+    "type": "library",
+    "description": "A Javascript compressor based on preg written in PHP.",
+    "homepage": "http://www.xorax.info/labs/jsxs/",
+    "license": [
+        "MIT",
+        "GPL-3.0"
+    ],
+    "authors": [
+        {
+            "name": "Martin PANEL",
+            "email": "martin@xorax.info",
+            "homepage": "http://www.xorax.info"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/xxorax/JSXS/issues"
+    },
+    "require": {
+        "php": ">=5.1.0"
+    },
+    "autoload": {
+        "classmap": ["preg/", "PregFile.php", "Jsxs.php"]
+    }
+}
