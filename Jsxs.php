@@ -27,7 +27,6 @@
  */
 
 //*
-error_reporting(E_ALL);
 ini_set('pcre.backtrack_limit',10000000);
 ini_set('pcre.recursion_limit',10000000);
 set_time_limit(60);
